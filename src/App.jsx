@@ -12,9 +12,9 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Homepage />} />
-          <Route path="/pricing" element={<Pricing />} />
-          <Route path="/product" element={<Product />} />
-          <Route path="/app" element={<AppLayout />} />
+          <Route path="pricing" element={<Pricing />} />
+          <Route path="product" element={<Product />} />
+          <Route path="app" element={<AppLayout />} />
           <Route path="/login" element={<Login />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
