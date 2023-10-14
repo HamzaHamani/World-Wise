@@ -4,7 +4,7 @@ function AppLayout() {
   return (
     <div>
       <AppNav />
-      app
+      <button>app</button>
     </div>
   );
 }
