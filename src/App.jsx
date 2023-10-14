@@ -1,5 +1,22 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Product from "./page/Product";
+import Pricing from "./page/Pricing";
+import Homepage from "./page/Homepage";
+import PageNotFound from "./page/PageNotFound";
+
 function App() {
-  return <div>a</div>;
+  return (
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/product" element={<Product />} />
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
+  );
 }
 
 export default App;

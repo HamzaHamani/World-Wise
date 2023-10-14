@@ -1,12 +1,12 @@
 import PageNav from "../components/PageNav";
 
-function Pricing() {
+function PageNotFound() {
   return (
     <div>
       <PageNav />
-      Pricing Pricing
+      PageNotFound
     </div>
   );
 }
 
-export default Pricing;
+export default PageNotFound;
