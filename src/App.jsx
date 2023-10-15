@@ -6,8 +6,33 @@ import PageNotFound from "./pages/PageNotFound";
 import AppLayout from "./pages/AppLayout";
 import Login from "./pages/Login";
 import CityList from "./components/CityList";
+import { useState } from "react";
+import { useEffect } from "react";
+import { polyfillCountryFlagEmojis } from "country-flag-emoji-polyfill";
+polyfillCountryFlagEmojis();
+const URL = "http://localhost:9000";
 
 function App() {
+  const [cities, setCities] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    async function fetchCities() {
+      try {
+        setLoading(true);
+        const res = await fetch(`${URL}/cities`);
+        const data = await res.json();
+
+        setCities(data);
+      } catch (err) {
+        alert("there was an error");
+      } finally {
+        // console.log("done");
+        setLoading(false);
+      }
+    }
+    fetchCities();
+  }, []);
   return (
     <div>
       <BrowserRouter>
@@ -17,8 +42,14 @@ function App() {
           <Route path="product" element={<Product />} />
           <Route path="app" element={<AppLayout />}>
             {/* 👇 THIS ROUTE GONNA BE DEFUALT WE GONNA SE INSIDE APP WHERE WE PUT IT <OUTLER*/}
-            <Route index element={<CityList />} />
-            <Route path="cities" element={<CityList />} />
+            <Route
+              index
+              element={<CityList cities={cities} loading={loading} />}
+            />
+            <Route
+              path="cities"
+              element={<CityList cities={cities} loading={loading} />}
+            />
             <Route path="countries" element={<p>countries</p>} />
             <Route path="form" element={<p>form</p>} />
           </Route>
