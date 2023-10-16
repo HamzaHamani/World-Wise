@@ -9,6 +9,7 @@ import CityList from "./components/CityList";
 import { useState } from "react";
 import { useEffect } from "react";
 import { polyfillCountryFlagEmojis } from "country-flag-emoji-polyfill";
+import CountryList from "./components/CountryList";
 polyfillCountryFlagEmojis();
 const URL = "http://localhost:9000";
 
@@ -41,7 +42,7 @@ function App() {
           <Route path="pricing" element={<Pricing />} />
           <Route path="product" element={<Product />} />
           <Route path="app" element={<AppLayout />}>
-            {/* 👇 THIS ROUTE GONNA BE DEFUALT WE GONNA SE INSIDE APP WHERE WE PUT IT <OUTLER*/}
+            {/*👇 THIS ROUTE GONNA BE DEFUALT WE GONNA SE INSIDE APP WHERE WE PUT IT <OUTLER*/}
             <Route
               index
               element={<CityList cities={cities} loading={loading} />}
@@ -50,7 +51,10 @@ function App() {
               path="cities"
               element={<CityList cities={cities} loading={loading} />}
             />
-            <Route path="countries" element={<p>countries</p>} />
+            <Route
+              path="countries"
+              element={<CountryList cities={cities} loading={loading} />}
+            />
             <Route path="form" element={<p>form</p>} />
           </Route>
           <Route path="/login" element={<Login />} />
