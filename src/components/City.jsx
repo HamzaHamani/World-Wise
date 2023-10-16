@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import styles from "./City.module.css";
 
 function City() {
@@ -12,8 +12,11 @@ function City() {
 
   const { cityName, emoji, date, notes } = currentCity;
   const { id } = useParams();
+  const [search, setSearch] = useSearchParams();
+  const lat = search.get("lat");
+  console.log(lat);
   // return (
-  //   <div className={styles.city}>
+  //   <div className={--styles.city}>
   //     <div className={styles.row}>
   //       <h6>City name</h6>
   //       <h3>
