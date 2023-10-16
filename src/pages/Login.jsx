@@ -1,11 +1,14 @@
 import { useState } from "react";
 import styles from "./Login.module.css";
 import PageNav from "../components/PageNav";
+import { useParams } from "react-router-dom";
 
 export default function Login() {
   // PRE-FILL FOR DEV PURPOSES
   const [email, setEmail] = useState("jack@example.com");
   const [password, setPassword] = useState("qwerty");
+  const x = useParams();
+  console.log(x);
 
   return (
     <main className={styles.login}>
