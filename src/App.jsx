@@ -11,6 +11,7 @@ import { useEffect } from "react";
 import { polyfillCountryFlagEmojis } from "country-flag-emoji-polyfill";
 import CountryList from "./components/CountryList";
 import City from "./components/City";
+import Form from "./components/Form";
 polyfillCountryFlagEmojis();
 const URL = "http://localhost:9000";
 
@@ -57,7 +58,7 @@ function App() {
               path="countries"
               element={<CountryList cities={cities} loading={loading} />}
             />
-            <Route path="form" element={<p>form</p>} />
+            <Route path="form" element={<Form />} />
           </Route>
           <Route path="/login" element={<Login />} />
           {/*! for invalid path URL */}
