@@ -2,10 +2,9 @@ import styles from "./CountryList.module.css";
 import Spinner from "./Spinner";
 import Message from "./Message";
 import CountryItem from "./CountryItem";
-import { useContext } from "react";
-import { CitiesContext } from "../CitiesContext";
+import { useCities } from "../CitiesContext";
 function CountryList() {
-  const { loading, cities } = useContext(CitiesContext);
+  const { loading, cities } = useCities();
   const length = cities.length;
 
   if (loading) return <Spinner />;
