@@ -1,4 +1,10 @@
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter,
+  Navigate,
+  Route,
+  Routes,
+  useLocation,
+} from "react-router-dom";
 import Product from "./pages/Product";
 import Pricing from "./pages/Pricing";
 import Homepage from "./pages/Homepage";
@@ -14,30 +20,32 @@ import Form from "./components/Form";
 import { CitiesProvider } from "./CitiesContext";
 polyfillCountryFlagEmojis();
 
+import { AnimatePresence } from "framer-motion";
+
 function App() {
+  const location = useLocation();
   return (
-    <div>
-      <CitiesProvider>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Homepage />} />
-            <Route path="pricing" element={<Pricing />} />
-            <Route path="product" element={<Product />} />
-            <Route path="app" element={<AppLayout />}>
-              {/*👇 THIS ROUTE GONNA BE DEFUALT WE GONNA SE INSIDE APP WHERE WE PUT IT <OUTLER*/}
-              <Route index element={<Navigate replace to="cities" />} />
-              <Route path="cities" element={<CityList />} />
-              <Route path="cities/:id" element={<City />} />
-              <Route path="countries" element={<CountryList />} />
-              <Route path="form" element={<Form />} />
-            </Route>
-            <Route path="/login" element={<Login />} />
-            {/*! for invalid path URL */}
-            <Route path="*" element={<PageNotFound />} />
-          </Routes>
-        </BrowserRouter>
-      </CitiesProvider>
-    </div>
+    <CitiesProvider>
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<Homepage />} />
+          <Route path="pricing" element={<Pricing />} />
+          <Route path="product" element={<Product />} />
+          <Route path="app" element={<AppLayout />}>
+            {/* 👇 THIS ROUTE GONNA BE DEFUALT WE GONNA SE INSIDE APP WHERE WE PUT IT <OUTLER */}
+            <Route index element={<Navigate replace to="cities" />} />
+            <Route path="cities" element={<CityList />} />
+            <Route path="cities/:id" element={<City />} />
+            <Route path="countries" element={<CountryList />} />
+            <Route path="form" element={<Form />} />
+          </Route>
+          <Route path="/login" element={<Login />} />
+          {/*! for invalid path URL */}
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+      </AnimatePresence>
+      {/* </BrowserRouter> */}
+    </CitiesProvider>
   );
 }
 

@@ -25,124 +25,28 @@
       "id": 17806751
     },
     {
-      "cityName": "Berlin",
-      "country": "Germany",
-      "emoji": "🇩🇪",
-      "date": "2027-02-12T09:24:11.863Z",
-      "notes": "Amazing 😃",
+      "cityName": "Gaillac-d'Aveyron",
+      "country": "France",
+      "emoji": "🇫🇷",
+      "notes": "sdasd",
+      "date": "2023-10-25T19:30:34.307Z",
       "position": {
-        "lat": 52.53586782505711,
-        "lng": 13.376933665713324
+        "lat": "44.35527821160296",
+        "lng": "2.9003906250000004"
       },
-      "id": 98443197
+      "id": 73930386
     },
     {
-      "cityName": "El Cardoso de la Sierra",
+      "cityName": "Balearic Islands",
       "country": "Spain",
       "emoji": "🇪🇸",
-      "notes": "asdsd",
-      "date": "2023-10-25T15:23:55.161Z",
+      "notes": "a",
+      "date": "2023-10-25T19:30:40.860Z",
       "position": {
-        "lat": "41.07935114946899",
-        "lng": "-3.40576171875"
+        "lat": "38.87392853923632",
+        "lng": "1.47216796875"
       },
-      "id": 98443198
-    },
-    {
-      "cityName": "Kenitra",
-      "country": "Morocco",
-      "emoji": "🇲🇦",
-      "notes": "lovely city",
-      "date": "2023-10-25T15:25:06.684Z",
-      "position": {
-        "lat": "34.288991865037524",
-        "lng": "-6.39404296875"
-      },
-      "id": 98443199
-    },
-    {
-      "cityName": "Torsby",
-      "country": "Sweden",
-      "emoji": "🇸🇪",
-      "notes": "okey",
-      "date": "2023-10-25T15:44:12.443Z",
-      "position": {
-        "lat": "60.60854176060907",
-        "lng": "13.205566406250002"
-      },
-      "id": 98443200
-    },
-    {
-      "cityName": "Lestijarvi",
-      "country": "Finland",
-      "emoji": "🇫🇮",
-      "notes": "narwoe",
-      "date": "2023-10-10T23:00:00.000Z",
-      "position": {
-        "lat": "63.470144746565445",
-        "lng": "24.675292968750004"
-      },
-      "id": 98443201
-    },
-    {
-      "cityName": "Skoki",
-      "country": "Poland",
-      "emoji": "🇵🇱",
-      "notes": "sdadasd",
-      "date": "2023-10-25T15:45:13.736Z",
-      "position": {
-        "lat": "52.64306343665892",
-        "lng": "17.270507812500004"
-      },
-      "id": 98443202
-    },
-    {
-      "cityName": "Staraya Russa",
-      "country": "Russian Federation (the)",
-      "emoji": "🇷🇺",
-      "notes": "asdasd",
-      "date": "2023-10-25T15:45:25.011Z",
-      "position": {
-        "lat": "57.51582286553883",
-        "lng": "31.992187500000004"
-      },
-      "id": 98443203
-    },
-    {
-      "cityName": "Pozheg",
-      "country": "Russian Federation (the)",
-      "emoji": "🇷🇺",
-      "notes": "russi good",
-      "date": "2023-10-10T23:00:00.000Z",
-      "position": {
-        "lat": "62.186013857194226",
-        "lng": "54.58007812500001"
-      },
-      "id": 98443204
-    },
-    {
-      "cityName": "Mungeranie",
-      "country": "Australia",
-      "emoji": "🇦🇺",
-      "notes": "dik",
-      "date": "2023-10-25T15:47:30.578Z",
-      "position": {
-        "lat": "-26.11598592533351",
-        "lng": "138.86718750000003"
-      },
-      "id": 98443205
-    },
-    {
-      "cityName": "Guilin",
-      "country": "China",
-      "emoji": "🇨🇳",
-      "notes": "lovely",
-      "date": "2023-10-25T15:49:20.155Z",
-      "position": {
-        "lat": "25.64152637306577",
-        "lng": "110.12695312500001"
-      },
-      "id": 98443206
+      "id": 73930387
     }
   ]
 }

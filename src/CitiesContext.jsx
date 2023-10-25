@@ -54,7 +54,6 @@ function CitiesProvider({ children }) {
       const data = await res.json();
 
       setCities((previous) => [...previous, data]);
-      console.log(data);
     } catch (err) {
       alert("there was an error");
     } finally {
