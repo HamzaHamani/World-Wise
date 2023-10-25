@@ -13,6 +13,7 @@ import Message from "./Message";
 import Spinner from "./Spinner";
 
 import styles from "./Form.module.css";
+import { useCities } from "../CitiesContext";
 
 export function convertToEmoji(countryCode) {
   const codePoints = countryCode
@@ -33,12 +34,12 @@ function Form() {
   const [geocodingError, setgeocodingError] = useState("");
 
   const [isLoadingGeocoding, setIsLoadingGeocoding] = useState(false);
-
+  const { createCities, loading } = useCities();
   const [emoji, setEmoji] = useState();
 
   const BASE_url = "https://api.bigdatacloud.net/data/reverse-geocode-client";
 
-  function formaHandler(e) {
+  async function formaHandler(e) {
     e.preventDefault();
     if (!cityName || !date || !notes) return;
     const newCity = {
@@ -49,7 +50,10 @@ function Form() {
       date,
       position: { lat, lng },
     };
-    console.log(newCity);
+    await createCities(newCity);
+    // if (loading === false) navigate("/app/cities");
+    await navigate("/app/cities");
+    // console.log  (newCity);
     setCityName("");
     setDate("");
     setNotes("");
@@ -81,7 +85,10 @@ function Form() {
   if (isLoadingGeocoding) return <Spinner />;
   if (geocodingError) return <Message message={geocodingError} />;
   return (
-    <form className={styles.form} onSubmit={formaHandler}>
+    <form
+      className={`${styles.form} ${loading ? styles.loading : ""}`}
+      onSubmit={formaHandler}
+    >
       <div className={styles.row}>
         <label htmlFor="cityName">City name</label>
         <input
