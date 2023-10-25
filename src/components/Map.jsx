@@ -8,8 +8,9 @@ import {
   useMap,
   useMapEvent,
 } from "react-leaflet";
-import { useNavigate, useParams, useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useCities } from "../CitiesContext";
+import useUrlPosition from "../hooks/useUrlPosition";
 import styles from "./Map.module.css";
 // import Button from "./Button";
 // import { useGeolocation } from "@uidotdev/usehooks";
@@ -29,13 +30,11 @@ function Map() {
       <img src={`https://flagcdn.com/24x18/${countryCode}.png`} alt="flag" />
     );
   };
-  const { id } = useParams();
-  const navigate = useNavigate();
+  // const { id } = useParams();
+  // const navigate = useNavigate();
   const { cities } = useCities();
-
-  const [searchParams, setSearchParams] = useSearchParams();
-  const lat = searchParams.get("lat");
-  const lng = searchParams.get("lng");
+  const [lat, lng] = useUrlPosition();
+  // console.log(lat, lng);
   const [position, setPosition] = useState([40, 0]);
 
   useEffect(() => {
