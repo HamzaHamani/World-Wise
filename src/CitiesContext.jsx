@@ -19,7 +19,7 @@ function CitiesProvider({ children }) {
 
         setCities(data);
       } catch (err) {
-        alert("there was an error");
+        alert("there was an error while fitching cities");
       } finally {
         // console.log("done");
         setLoading(false);
@@ -42,7 +42,14 @@ function CitiesProvider({ children }) {
     }
   }
   return (
-    <CitiesContext.Provider value={{ cities, loading, currentCity, getCities }}>
+    <CitiesContext.Provider
+      value={{
+        cities,
+        loading,
+        currentCity,
+        getCities,
+      }}
+    >
       {children}
     </CitiesContext.Provider>
   );

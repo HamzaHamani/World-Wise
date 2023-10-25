@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+
 import {
   MapContainer,
   Marker,
@@ -10,8 +11,16 @@ import {
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { useCities } from "../CitiesContext";
 import styles from "./Map.module.css";
+// import Button from "./Button";
+// import { useGeolocation } from "@uidotdev/usehooks";
 
 function Map() {
+  // const {
+  //   isLoading: postionLoading,
+  //   position: geolocationPosition,
+  //   getPosition,
+  // } = useGeolocation();
+
   const flagemojiToPNG = (flag) => {
     let countryCode = Array.from(flag, (codeUnit) => codeUnit.codePointAt())
       .map((char) => String.fromCharCode(char - 127397).toLowerCase())
@@ -28,10 +37,10 @@ function Map() {
   const lat = searchParams.get("lat");
   const lng = searchParams.get("lng");
   const [position, setPosition] = useState([40, 0]);
+
   useEffect(() => {
     if (lat & lng) setPosition([lat, lng]);
   }, [lat, lng]);
-
 
   return (
     <div className={styles.mapContainer}>
@@ -71,7 +80,7 @@ function ChangeCenter({ position }) {
 function DetectClick() {
   const navigate = useNavigate();
   useMapEvent({
-    click: (e) => navigate("form"),
+    click: (e) => navigate(`form?lat=${e.latlng.lat}&lng=${e.latlng.lng}`),
   });
 }
 
