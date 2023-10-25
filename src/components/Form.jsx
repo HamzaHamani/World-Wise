@@ -1,6 +1,10 @@
 // "https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=0&longitude=0"
 
 import { useEffect } from "react";
+
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useUrlPosition from "../hooks/useUrlPosition";
@@ -33,6 +37,23 @@ function Form() {
   const [emoji, setEmoji] = useState();
 
   const BASE_url = "https://api.bigdatacloud.net/data/reverse-geocode-client";
+
+  function formaHandler(e) {
+    e.preventDefault();
+    if (!cityName || !date || !notes) return;
+    const newCity = {
+      cityName,
+      country,
+      emoji,
+      notes,
+      date,
+      position: { lat, lng },
+    };
+    console.log(newCity);
+    setCityName("");
+    setDate("");
+    setNotes("");
+  }
   useEffect(() => {
     async function fetchCityData() {
       try {
@@ -56,10 +77,11 @@ function Form() {
     fetchCityData();
   }, [lat, lng]);
 
+  if (!lat && !lng) return <Message message="Start by Clicking on the map" />;
   if (isLoadingGeocoding) return <Spinner />;
   if (geocodingError) return <Message message={geocodingError} />;
   return (
-    <form className={styles.form}>
+    <form className={styles.form} onSubmit={formaHandler}>
       <div className={styles.row}>
         <label htmlFor="cityName">City name</label>
         <input
@@ -72,10 +94,15 @@ function Form() {
 
       <div className={styles.row}>
         <label htmlFor="date">When did you go to {cityName}?</label>
-        <input
+        {/* <input
           id="date"
           onChange={(e) => setDate(e.target.value)}
           value={date}
+        /> */}
+        <DatePicker
+          id="date"
+          onChange={(date) => setDate(date)}
+          selected={date}
         />
       </div>
 
@@ -94,7 +121,7 @@ function Form() {
           type={"back"}
           oncClick={(e) => {
             e.preventDefault();
-            navigate(-1);
+            navigate("/app/cities");
           }}
         >
           &larr; Back
