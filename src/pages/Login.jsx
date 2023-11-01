@@ -22,7 +22,7 @@ export default function Login() {
         // transition={{ duration: 5, ease: "linear", type: "spring" }}
       >
         <PageNav />
-        <form className={styles.form}>
+        <form className={styles.form} onSubmit={(e) => e.preventDefault()}>
           <div className={styles.row}>
             <label htmlFor="email">Email address</label>
             <input

@@ -19,7 +19,8 @@ function CitiesProvider({ children }) {
 
         setCities(data);
       } catch (err) {
-        alert("there was an error while fitching cities");
+        // alert("there was an error while fitching cities");
+        console.error("there was an error while fitching cities");
       } finally {
         // console.log("done");
         setLoading(false);
